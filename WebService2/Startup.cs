@@ -38,6 +38,10 @@ namespace WebService2
                 ConnectRetryCount=0";
             services.AddDbContext<Context>(options => options.UseSqlServer(connection));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddJsonOptions(
+                option => option.SerializerSettings.Formatting =
+                Newtonsoft.Json.Formatting.Indented
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
